@@ -22,19 +22,17 @@ Let me show you.
 
 
 .. code-block:: python
-from chouf.chouffer import ChoufHandler
-from chouf.triggers.base import FilterMatch
-from chouf.triggers.repeat import RepeatedRecordTrigger
-
-.. code-block:: python
-def action():
-    print('Action fired')
-
-.. code-block:: python
-f = FilterMatch(min_level=logging.CRITICAL, name='^.*$', msg='^.*$')
-rrt = RepeatedRecordTrigger(times=10, period_s=5, filters=[f], action=lambda: action())
-ch = ChoufHandler(triggers=[rrt])
-logging.root.addHandler(ch)
+    from chouf.chouffer import ChoufHandler
+    from chouf.triggers.base import FilterMatch
+    from chouf.triggers.repeat import RepeatedRecordTrigger
+    
+    def action():
+        print('Action fired')
+    
+    f = FilterMatch(min_level=logging.CRITICAL, name='^.*$', msg='^.*$')
+    rrt = RepeatedRecordTrigger(times=10, period_s=5, filters=[f], action=lambda: action())
+    ch = ChoufHandler(triggers=[rrt])
+    logging.root.addHandler(ch)
 
 
 With this piece of code If a critical log record arrive 10 times in 5 second action will be executed
