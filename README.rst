@@ -22,6 +22,7 @@ Let me show you.
 
 
 .. code:: python
+
 from chouf.chouffer import ChoufHandler
 from chouf.triggers.base import FilterMatch
 from chouf.triggers.repeat import RepeatedRecordTrigger
